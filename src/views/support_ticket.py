@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from ..models import SupportTicket, Account
 from ..forms import SupportTicketForm
+from ..decorators import only_authenticated_user
 
 
+@only_authenticated_user
 def ticket_on_page(request):
     ticket_list = SupportTicket.objects.all()
     paginator = Paginator(ticket_list, 10)  # Show 10 tickets per page
@@ -13,12 +15,14 @@ def ticket_on_page(request):
     return page_obj
 
 
+@only_authenticated_user
 def ticket_list(request):
     tickets = SupportTicket.objects.all()
     page_obj = ticket_on_page(request)
     return render(request, 'support_ticket_list.html', {'tickets': tickets, 'page_obj': page_obj})
 
 
+@only_authenticated_user
 def create_ticket(request):
     if request.method == 'POST':
         form = SupportTicketForm(request.POST)

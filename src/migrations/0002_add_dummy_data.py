@@ -32,7 +32,7 @@ def insert_support_ticket_reply(apps, schema_editor):
         account = Account.objects.get_or_create(username=f'Stephani user{i - 3}')[0]
         support_ticket = SupportTicket.objects.get_or_create(title=f'Support Ticket {i+3}')[0]
         support_ticket_replies.append(
-            {'account': account, 'support_ticket': support_ticket}
+            {'account': account, 'support_ticket': support_ticket, 'message': f'message{i}'}
         )
     for reply in support_ticket_replies:
         SupportTicketReply.objects.create(**reply)

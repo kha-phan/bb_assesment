@@ -7,4 +7,4 @@ pip install -r requirements.txt
 python manage.py migrate
 
 # Run Django development server
-python manage.py runserver 0.0.0.0:8080
+python manage.py runserver localhost:8080
