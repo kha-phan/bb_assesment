@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div id="dashboard" class="container">
+        <h1>Account Management</h1>
+        <div id="button_area">
+            <button id="createAccountBtn">Create Account</button>
+        </div>
+        <div id="accountInfo"></div>
+        <div id="ticketList"></div>
+        <table id="accounts">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Is Active</th>
+            </tr>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account.username }}</td>
+                <td>{{ account.email }}</td>
+                <td>{{ account.is_active }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <script>
+        document.getElementById('createAccountBtn').addEventListener('click', function() {
+            // Redirect to the create account page
+            window.location.href = "{% url 'src:create_account' %}";
+        });
+    </script>
+
+
+</body>
+</html>

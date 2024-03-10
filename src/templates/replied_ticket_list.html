@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div id="dashboard" class="container">
+        <h1>Replied Ticket Management</h1>
+        <div id="accountInfo"></div>
+        <div id="ticketList"></div>
+        <table id="tickets">
+            <tr>
+                <th>Ticket</th>
+                <th>Message</th>
+                <th>Account</th>
+                <th>Action</th>
+            </tr>
+            {% for reply in replies %}
+            <tr>
+
+                <form id="delete-reply-form" action="{% url 'src:delete_reply' reply.id %}" method="POST">
+                    {% csrf_token %}
+                    <td>{{ reply.support_ticket.title }}</td>
+                    <td>{{ reply.message }}</td>
+                    <td>{{ reply.account.username }}</td>
+                    <td><button onclick="confirmDelete()" style="background:transparent"><img src="{% static 'content/icons/delete.png' %}" width="20" height="20" style="vertical-align:middle;margin:5px 5px"></i></button></td>
+                </form>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+    <script>
+        function confirmDelete() {
+            if (confirm('Are you sure you want to delete this ticket?')) {
+                document.getElementById('delete-reply-form').submit();
+            }
+        }
+    </script>
+</body>
+</html>

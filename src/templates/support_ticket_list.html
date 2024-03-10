@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div id="dashboard" class="container">
+        <h1>Support Ticket Management</h1>
+        <div id="button_area">
+            <button id="createTicketBtn">Create Support Ticket</button>
+        </div>
+        <div id="accountInfo"></div>
+        <div id="ticketList"></div>
+        <table id="tickets">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Reporter</th>
+                <th>Reply</th>
+            </tr>
+            {% for ticket in page_obj %}
+            <tr>
+                <form id="create-reply-form" action="{% url 'src:create_reply_to_ticket' ticket.id %}">
+                    <td>{{ ticket.title }}</td>
+                    <td>{{ ticket.description }}</td>
+                    <td>{{ ticket.account.username }}</td>
+                    <td><button onclick=replyTicket() style="background:transparent"><img src="{% static 'content/icons/reply.png' %}" width="20" height="20" style="vertical-align:middle;margin:5px 5px"></i></button></td>
+                </form>
+            </tr>
+            {% endfor %}
+
+            <!-- Pagination links -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById('createTicketBtn').addEventListener('click', function() {
+            // Redirect to the create ticket page
+            window.location.href = "{% url 'src:create_ticket' %}";
+        });
+
+
+    </script>
+
+    <script>
+        function replyTicket() {
+            document.getElementById('create-reply-form').submit();
+        }
+    </script>
+
+</body>
+</html>

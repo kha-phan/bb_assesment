@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+        <form id="createAccountForm" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+<!--    <script src="{% static 'content/js/create_account.js' %}"></script>-->
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply to Support Ticket </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+    <h1>Reply to Support Ticket </h1>
+        <form id="replyToTicketForm" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Support Ticket</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Support Ticket</h1>
+         <form id="createTicketForm" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Ticket</button>
+        </form>
+    </div>
+
+<!--    <script src="{% static 'content/js/create_ticket.js' %}"></script>-->
+</body>
+</html>

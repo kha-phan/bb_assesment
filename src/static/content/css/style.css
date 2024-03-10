@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    margin-top: 10;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+#createAccountBtn, #createTicketBtn {
+    width: 200px;
+    padding: 10px;
+    margin-right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#createAccountBtn:hover {
+    background-color: #0056b3;
+}
+
+#createTicketBtn:hover {
+    background-color: #0056b3;
+}
+
+#dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#button_area {
+    text-align: right;
+    margin: 20px;
+}
+
+#accounts, #tickets {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#accounts td, #accounts th, #tickets td, #tickets th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#accounts tr:nth-child(even){background-color: #f2f2f2;}
+#tickets tr:nth-child(even){background-color: #f2f2f2;}
+
+#accounts tr:hover {background-color: #ddd;}
+#tickets tr:hover {background-color: #ddd;}
+
+#accounts th, #tickets th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.custom-areabox {
+    height: 134px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: start;
+    background: #FFFFFF;
+    border: none;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+}

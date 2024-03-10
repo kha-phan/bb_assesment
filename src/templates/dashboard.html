@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'content/css/style.css' %}">
+</head>
+<body>
+    <div id="dashboard" class="container">
+        <h1>Welcome to Customer Service</h1>
+        <div class="sidenav">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="{% url 'src:account_list' %}">Account Management</a></li>
+                <li><a href="{% url 'src:ticket_list' %}">Support Ticket Management</a></li>
+                <li><a href="{% url 'src:replied_ticket_list' %}">Replied Ticket Management</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
