@@ -115,3 +115,39 @@ button:hover {
     font-weight: 500;
     font-size: 13px;
 }
+
+li {
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #04AA6D;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+li a {
+    color: white;
+}
+
+li:hover {
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #42CC36;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidenav {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
